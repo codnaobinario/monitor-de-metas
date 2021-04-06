@@ -29,7 +29,7 @@ RUN npm config set strict-ssl false && npm install -g bower
 
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
-RUN git clone https://github.com/mbnunes/monitor-de-metas.git
+RUN git clone https://github.com/nucleo-digital/monitor-de-metas.git
 
 RUN wget http://br.wordpress.org/wordpress-3.9.1-pt_BR.zip && \
     unzip wordpress-3.9.1-pt_BR.zip && \
