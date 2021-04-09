@@ -21,7 +21,5 @@
  * @since    Timber 0.1
  */
 
-$context = Timber::get_context();
-$post = new TimberPost();
-$context['post'] = $post;
-Timber::render(array('page-' . $post->post_name . '.twig', 'homepage.twig'), $context);
+$context = Pdm\PaginaPost::get_context();
+Timber::render('homepage.twig', $context);
