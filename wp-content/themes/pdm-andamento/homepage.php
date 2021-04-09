@@ -22,4 +22,4 @@
  */
 
 $context = Pdm\PaginaPost::get_context();
-Timber::render('index.twig', $context);
+Timber::render('homepage.twig', $context);
