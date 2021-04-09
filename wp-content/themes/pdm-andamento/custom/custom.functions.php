@@ -1,6 +1,12 @@
 <?php
 
 /*CUSTOM METAS*/
+    add_action('init', 'eixos_register');
+    add_action('init', 'metas_register');
+    add_action('init', 'ouse_register');
+    add_action('init', 'grande_tema_register');
+    add_action('init', 'acao_register');
+    add_action('init', 'indicadores_register');
 function eixos_register() {
 	$labels = array(
       'name' => __('Eixos'),
@@ -234,10 +240,10 @@ function indicadores_register() {
 $user_roll = $user->roles[0];
 print_r($user_roll);
 // if($user_roll =="administrator") {
-    add_action('init', 'eixos_register');
-    add_action('init', 'metas_register');
-    add_action('init', 'ouse_register');
-    add_action('init', 'grande_tema_register');
-    add_action('init', 'acao_register');
-    add_action('init', 'indicadores_register');
+add_action('admin_init', 'eixos_register');
+add_action('admin_init', 'metas_register');
+add_action('admin_init', 'ouse_register');
+add_action('admin_init', 'grande_tema_register');
+add_action('admin_init', 'acao_register');
+add_action('admin_init', 'indicadores_register');
 // }
