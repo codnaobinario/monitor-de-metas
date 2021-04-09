@@ -2,11 +2,6 @@
 
 /*CUSTOM METAS*/
     add_action('init', 'eixos_register');
-    add_action('init', 'metas_register');
-    add_action('init', 'ouse_register');
-    add_action('init', 'grande_tema_register');
-    add_action('init', 'acao_register');
-    add_action('init', 'indicadores_register');
 function eixos_register() {
 	$labels = array(
       'name' => __('Eixos'),
@@ -24,28 +19,21 @@ function eixos_register() {
     $args = array(
 		'labels' => $labels,
 		'public' => true,
-		'publicly_queryable' => false,
+		'publicly_queryable' => true,
 		'show_ui' => true,
 		'query_var' => true,
 		'rewrite' => array('slug' => 'eixos'),
 		'capability_type' => 'post',
-        'capabilities' => array(
-            'publish_posts' => 'publish_eixos',
-            'edit_posts' => 'edit_eixos',
-            'edit_others_posts' => 'edit_others_eixos',
-            'read_private_posts' => 'read_private_eixos',
-            'edit_post' => 'edit_eixos',
-            'delete_post' => 'delete_eixos',
-            'read_post' => 'read_eixos',
-        ),
 		'hierarchical' => false,
 		'menu_position' => null,
-		'taxonomies' =>false
+		'supports' => array('title', 'editor', 'page-attributes', 'comments', 'thumbnail')
     );
     register_post_type('eixos_register', $args );
     flush_rewrite_rules();
 }
+add_action('admin_init', 'eixos_register');
 
+add_action('init', 'metas_register');
 function metas_register() {
 	$labels = array(
       'name' => __('Metas'),
@@ -84,7 +72,9 @@ function metas_register() {
     register_post_type('metas_register', $args );
     flush_rewrite_rules();
 }
+add_action('admin_init', 'metas_register');
 
+add_action('init', 'ouse_register');
 function ouse_register() {
 	$labels = array(
       'name' => __('Ouse'),
@@ -123,6 +113,9 @@ function ouse_register() {
     register_post_type('ouse_register', $args );
     flush_rewrite_rules();
 }
+add_action('admin_init', 'ouse_register');
+
+add_action('init', 'grande_tema_register');
 function grande_tema_register() {
 	$labels = array(
       'name' => __('Grande Tema'),
@@ -161,6 +154,9 @@ function grande_tema_register() {
     register_post_type('grande_tema_register', $args );
     flush_rewrite_rules();
 }
+add_action('admin_init', 'grande_tema_register');
+
+add_action('init', 'acao_register');
 function acao_register() {
 	$labels = array(
       'name' => __('Plano de Ação'),
@@ -199,6 +195,7 @@ function acao_register() {
     register_post_type('acao_register', $args );
     flush_rewrite_rules();
 }
+add_action('admin_init', 'acao_register');
 function indicadores_register() {
 	$labels = array(
       'name' => __('Indicadores'),
@@ -237,13 +234,9 @@ function indicadores_register() {
     register_post_type('indicadores_register', $args );
     flush_rewrite_rules();
 }
+add_action('init', 'indicadores_register');
+add_action('admin_init', 'indicadores_register');
 $user_roll = $user->roles[0];
 print_r($user_roll);
 // if($user_roll =="administrator") {
-add_action('admin_init', 'eixos_register');
-add_action('admin_init', 'metas_register');
-add_action('admin_init', 'ouse_register');
-add_action('admin_init', 'grande_tema_register');
-add_action('admin_init', 'acao_register');
-add_action('admin_init', 'indicadores_register');
 // }
