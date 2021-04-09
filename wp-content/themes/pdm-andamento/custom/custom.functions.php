@@ -51,7 +51,7 @@ function metas_register() {
     $args = array(
 		'labels' => $labels,
 		'public' => true,
-		'publicly_queryable' => false,
+		'publicly_queryable' => true,
 		'show_ui' => true,
 		'query_var' => true,
 		'rewrite' => array('slug' => 'metas'),
@@ -67,7 +67,7 @@ function metas_register() {
         ),
 		'hierarchical' => false,
 		'menu_position' => null,
-		'taxonomies' =>false
+		'supports' => array('title', 'editor', 'page-attributes', 'comments', 'thumbnail')
     );
     register_post_type('metas_register', $args );
     flush_rewrite_rules();
@@ -92,7 +92,7 @@ function ouse_register() {
     $args = array(
 		'labels' => $labels,
 		'public' => true,
-		'publicly_queryable' => false,
+		'publicly_queryable' => true,
 		'show_ui' => true,
 		'query_var' => true,
 		'rewrite' => array('slug' => 'ouse'),
@@ -108,7 +108,7 @@ function ouse_register() {
         ),
 		'hierarchical' => false,
 		'menu_position' => null,
-		'taxonomies' =>false
+		'supports' => array('title', 'editor', 'page-attributes', 'comments', 'thumbnail')
     );
     register_post_type('ouse_register', $args );
     flush_rewrite_rules();
@@ -149,7 +149,7 @@ function grande_tema_register() {
         ),
 		'hierarchical' => false,
 		'menu_position' => null,
-		'taxonomies' =>false
+		'supports' => array('title', 'editor', 'page-attributes', 'comments', 'thumbnail')
     );
     register_post_type('grande_tema_register', $args );
     flush_rewrite_rules();
@@ -190,7 +190,7 @@ function acao_register() {
         ),
 		'hierarchical' => false,
 		'menu_position' => null,
-		'taxonomies' =>false
+		'supports' => array('title', 'editor', 'page-attributes', 'comments', 'thumbnail')
     );
     register_post_type('acao_register', $args );
     flush_rewrite_rules();
@@ -229,7 +229,7 @@ function indicadores_register() {
         ),
 		'hierarchical' => false,
 		'menu_position' => null,
-		'taxonomies' =>false
+		'supports' => array('title', 'editor', 'page-attributes', 'comments', 'thumbnail')
     );
     register_post_type('indicadores_register', $args );
     flush_rewrite_rules();
