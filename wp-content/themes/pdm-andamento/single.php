@@ -9,6 +9,8 @@
  * @since    Timber 0.1
  */
 
+$context = Pdm\PaginaPost::get_context();
+// print_r($context);
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
