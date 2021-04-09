@@ -123,3 +123,5 @@ function load_scripts ()
 {
     wp_enqueue_script( 'site-main', get_template_directory_uri() . '/assets/scripts/1.0.js', null, '0.1', true );
 }
+
+include __DIR__.'/custom/custom.functions.php';
