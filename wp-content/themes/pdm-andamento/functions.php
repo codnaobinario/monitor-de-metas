@@ -357,12 +357,12 @@ function indicadores_register() {
     register_post_type('indicadores_register', $args );
     flush_rewrite_rules();
 }
-$user_roll = $user->roles[0];
-if($user_roll =="administrator") {
+// $user_roll = $user->roles[0];
+// if($user_roll =="administrator") {
     add_action('init', 'eixos_register');
     add_action('init', 'metas_register');
     add_action('init', 'ouse_register');
     add_action('init', 'grande_tema_register');
     add_action('init', 'acao_register');
     add_action('init', 'indicadores_register');
-}
+// }

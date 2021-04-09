@@ -4,14 +4,14 @@ namespace Pdm;
 
 use Timber;
 
-class Posts extends Pagina
+class PaginaPost 
 {
 
 
     public static function startup($params)
     {
         $query = 'a=b';
-        \Timber::load_template('homepage.php', $query);
+        \Timber::load_template('homepage.php', $params);
     }
 
 

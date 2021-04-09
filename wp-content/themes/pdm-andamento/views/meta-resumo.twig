@@ -8,17 +8,15 @@
         <div class="small-12 medium-7 large-8 columns titulo">
             <h3><a href="{{site.url}}/meta/{{meta.id}}">{{meta.name}}</a></h3>
             <h4>
-            old objetivo
-                {# {% for objetivo in objetivos %}
+                {% for objetivo in objetivos %}
                     {% if objetivo.id == meta.objective_id %}
                         <a href="{{site.url}}/meta/{{meta.id}}">{{objetivo.name}}</a>
                     {% endif %}
-                {% endfor %} #}
+                {% endfor %}
             </h4>
             <h5>
             {% set count_sec = 0 %}
-                old secretaria
-            {# {% for meta_secretaria in meta.secretaries %}
+            {% for meta_secretaria in meta.secretaries %}
                 {% for secretaria in secretarias %}
                     {% if secretaria.id == meta_secretaria.id %}
                         {% if count_sec > 0 %}
@@ -28,20 +26,20 @@
                         {% set count_sec = count_sec + 1 %}
                     {% endif %}
                 {% endfor %}
-            {% endfor %} #}
+            {% endfor %}
             </h5>
         </div>
 
         <div class="small-12 medium-4 large-3 small-text-center text-right columns">
             <dl class="row tabs tabs-options" data-tab>
-                <dd class="meta box-options "><a href="#meta-{{meta.id}}-detalhes"><i class="icon-graph-arrow"></i>Resumo<br> desta meta</a></dd>
-                <dd class="projeto box-options "><a href="#meta-{{meta.id}}-projetos"><i class="icon-folder"></i>Projetos<br> desta meta</a></dd>
+                <dd class="meta box-options {% if filtro_so_subprefeitura != "sim" %}active{% endif %}"><a href="#meta-{{meta.id}}-detalhes"><i class="icon-graph-arrow"></i>Resumo<br> desta meta</a></dd>
+                <dd class="projeto box-options {% if filtro_so_subprefeitura == "sim" %}active{% endif %}"><a href="#meta-{{meta.id}}-projetos"><i class="icon-folder"></i>Projetos<br> desta meta</a></dd>
                 <dd class="acompanhar box-options"><a href="#meta-{{meta.id}}-acompanhar"><i class="icon-email-envelope"></i>Receber <br> notificações</a></dd>
             </dl>
         </div>
     </div>
     <div class="tabs-content medium-12 columns">
-        <div class="content " id="meta-{{meta.id}}-detalhes">
+        <div class="content {% if filtro_so_subprefeitura != "sim" %}active{% endif %}" id="meta-{{meta.id}}-detalhes">
                     <div class="medium-4 columns">
                         <div class="detalhes">
                         {% if meta.porcentagem.concluido > 100 %}
@@ -62,22 +60,17 @@
                     <div class="medium-8 columns">
                         <div class="chamadas">
                             <ul>
-                                <li class="primeiro"><a href="{{site.url}}/meta/{{meta.id}}">
-                                 {% if meta.qualitative_progress_1 !== null || meta.qualitative_progress_1 !== "" || meta.qualitative_progress_1 !== 0 %}
-                                    {{meta.qualitative_progress_1}}
-                                {% endif %}
-                                </a></li>
+                                <li class="primeiro"><a href="{{site.url}}/meta/{{meta.id}}">{{meta.qualitative_progress_1}}</a></li>
                                 <li><a href="{{site.url}}/meta/{{meta.id}}">{{meta.qualitative_progress_2}}</a></li>
                             </ul>
                         </div>
                     </div>
         </div>
-        <div class="content " id="meta-{{meta.id}}-projetos">
+        <div class="content {% if filtro_so_subprefeitura == "sim" %}active{% endif %}" id="meta-{{meta.id}}-projetos">
             <div class="medium-12 columns">
                 <div class="box medium-12 columns">
                     <ul class="small-12 columns">
-                    old projetos
-                        {# {% for projeto in meta.projects %}
+                        {% for projeto in meta.projects %}
                             {% if subprefeitura_active == "" %}
                                 <li class="small-12 medium-6 columns"><a href="{{site.url}}/projeto/{{projeto.id}}"><i class="icon-arrow-r-bold"></i> {{projeto.name}}</a></li>
                             {% else %}
@@ -87,7 +80,7 @@
                                     {% endif %}
                                 {% endfor %}
                             {% endif %}
-                        {% endfor %} #}
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
