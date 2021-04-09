@@ -19,7 +19,7 @@
 
 {% if metas|length > 0 %}
     {% for meta in metas %}
-        {% include "prefeitura-resumo.twig" with {meta:meta, filtro_so_subprefeitura:filtro_so_subprefeitura} %}
+        {% include "metas-resumo.twig" with {meta:meta, filtro_so_subprefeitura:filtro_so_subprefeitura} %}
     {% endfor %}
 {% else %}
 <div class="row">
