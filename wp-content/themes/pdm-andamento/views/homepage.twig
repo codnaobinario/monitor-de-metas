@@ -1,4 +1,3 @@
-
 {% extends "base.twig" %}
 
 {% block content %}
@@ -17,11 +16,27 @@
     </div>
 </div>
 
-{% if metas|length > 0 %}
-    {% for meta in metas %}
-        {% include "prefeitura-resumo.twig" with {meta:meta, filtro_so_subprefeitura:filtro_so_subprefeitura} %}
+{% if metas|length > 0 %} 
+{% for post_metas in metas %}
+<div class="row meta-card no-resultado">
+    <div class="medium-12 columns">
+        <div class="small-12 medium-1 columns ordem">
+            <p class="faixa"></p>
+            <p class="nome">meta</p>
+            <p class="numero">{{meta.id}}</p>
+        </div>
+        <div class="small-12 medium-7 large-8 columns titulo">
+            <h3><a href="{{site.url}}/meta/{{meta.id}}">{{meta.name}}</a></h3>
+            <h4> </h4>
+            <h5>
+            {% set count_sec = 0 %}
+                old secretaria
+            
+            </h5>
+        </div>
+
     {% endfor %}
-{% else %}
+{% else %} #}
 <div class="row">
     <div class="small-12 columns empty-results">
         <img src="{{site.theme.link}}/assets/images/sem-resultados.png" alt="Sem resultados">

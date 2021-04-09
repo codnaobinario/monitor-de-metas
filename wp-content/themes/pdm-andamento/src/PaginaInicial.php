@@ -8,6 +8,7 @@ class PaginaInicial
     {
         $context = \Timber::get_context();
         $api = new ApiClient;
+        // $posts = new
         $context['metas'] = $api->getMetasFiltradas($projeto_id);
         $context['subprefeituras'] = $api->getSubPrefeituras();
         $context['objetivos'] = $api->getObjetivos();

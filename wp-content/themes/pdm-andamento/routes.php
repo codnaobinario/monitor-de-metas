@@ -1,5 +1,11 @@
 <?php
 
+Timber::add_route('homepage', function ($params) {
+    return Pdm\PaginaPost::startup($params);
+});
+Timber::add_route('old/', function ($params) {
+    return Pdm\PaginaMeta::startup($params);
+});
 Timber::add_route('meta/:id', function ($params) {
     return Pdm\PaginaMeta::startup($params);
 });
