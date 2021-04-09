@@ -123,3 +123,38 @@ function load_scripts ()
 {
     wp_enqueue_script( 'site-main', get_template_directory_uri() . '/assets/scripts/1.0.js', null, '0.1', true );
 }
+
+
+
+/*CUSTOM METAS*/
+add_action('init', 'metas_register');
+function metas_register() {
+	$labels = array(
+      'name' => __('Metas'),
+      'singular_name' => __('Meta'),
+      'add_new' => __('Nova meta'),
+      'add_new_item' => __('Adicionar'),
+      'edit_item' => __('Editar'),
+      'new_item' => __('Nova'),
+      'view_item' => __('Ver'),
+      'search_items' => __('Procurar'),
+      'not_found' =>  __('Nada encontrado'),
+      'not_found_in_trash' => __('Nada encontrado na lixeira'),
+      'parent_item_colon' => ''
+    );
+    $args = array(
+		'labels' => $labels,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'query_var' => true,
+		'rewrite' => array('slug' => 'metas'),
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'menu_position' => null,
+		'supports' => array('title', 'editor', 'page-attributes', 'comments', 'thumbnail'),
+		'taxonomies' => array('metas-category')
+    );
+    register_post_type('metas', $args );
+    flush_rewrite_rules();
+}
