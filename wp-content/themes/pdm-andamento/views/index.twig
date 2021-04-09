@@ -2,7 +2,7 @@
 {% extends "base.twig" %}
 
 {% block content %}
-{# <div class="row summary-results">
+<div class="row summary-results">
     <div class="small-12 medium-10 columns">
     {% if filtros_usados %}
         <p class="filtro-por">Mostrando resultados de filtro por
@@ -15,12 +15,11 @@
     <div class="small-12 medium-2 columns text-right">
         <p>{{total_metas}} metas</p>
     </div>
-</div> #}
+</div>
 
-{% if post_metas|length > 0 %}
-    {% for meta in post_metas %}
-    {# filtro_so_subprefeitura:filtro_so_subprefeitura #}
-        {% include "meta-resumo.twig" with {meta:meta} %}
+{% if metas|length > 0 %}
+    {% for meta in metas %}
+        {% include "meta-resumo.twig" with {meta:meta, filtro_so_subprefeitura:filtro_so_subprefeitura} %}
     {% endfor %}
 {% else %}
 <div class="row">

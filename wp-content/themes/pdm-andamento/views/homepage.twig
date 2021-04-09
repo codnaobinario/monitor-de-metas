@@ -1,28 +1,50 @@
 {% extends "base.twig" %}
-{% block header %}
-{% include "header-simple.twig" with {page_type:"page"} %}
-{% endblock %}
+
 {% block content %}
-
-
-
-
-<div class="row">
-    <div class="small-12 columns nav-innerpage">
-        <h1 class="article-h1">{{post.title}}</h1>
+<div class="row summary-results">
+    <div class="small-12 medium-10 columns">
+    {% if filtros_usados %}
+        <p class="filtro-por">Mostrando resultados de filtro por
+        {% for filtro in filtros_usados %}
+            <span class="strong">{{filtro}},</span class="strong">
+        {% endfor %}
+        </p>
+    {% endif %}
+    </div>
+    <div class="small-12 medium-2 columns text-right">
+        <p>{{total_metas}} metas</p>
     </div>
 </div>
 
-    <div class="content-wrapper row outer-box ">
-        <article class="small-12 columns post-type-{{post.post_type}}" id="post-{{post.ID}}">
-            <section class="article-content">
+{% if metas|length > 0 %} 
+{% for post_metas in metas %}
+<div class="row meta-card no-resultado">
+    <div class="medium-12 columns">
+        <div class="small-12 medium-1 columns ordem">
+            <p class="faixa"></p>
+            <p class="nome">meta</p>
+            <p class="numero">{{meta.id}}</p>
+        </div>
+        <div class="small-12 medium-7 large-8 columns titulo">
+            <h3><a href="{{site.url}}/meta/{{meta.id}}">{{meta.name}}</a></h3>
+            <h4> </h4>
+            <h5>
+            {% set count_sec = 0 %}
+                old secretaria
+            
+            </h5>
+        </div>
 
-                <div class="article-body">
-                    {{post.content}}
-                </div>
-            </section>
-
-        </article>
-    </div> <!-- /content-wrapper -->
-
+    {% endfor %}
+{% else %} #}
+<div class="row">
+    <div class="small-12 columns empty-results">
+        <img src="{{site.theme.link}}/assets/images/sem-resultados.png" alt="Sem resultados">
+        <h3>
+            Desculpe, nenhum resultado foi encontrado. <br/>Experimente outros filtros.
+        </h3>
+    </div>
+</div>
+<br><br><br><br><br><br>
+{% endif %}
 {% endblock %}
