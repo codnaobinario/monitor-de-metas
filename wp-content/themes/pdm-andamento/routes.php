@@ -1,5 +1,8 @@
 <?php
 
+Timber::add_route('old/', function ($params) {
+    return  \Timber::load_template('homepage.php', $params);
+});
 Timber::add_route('meta/:id', function ($params) {
     return Pdm\PaginaMeta::startup($params);
 });
