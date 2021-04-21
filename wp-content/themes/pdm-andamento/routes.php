@@ -33,6 +33,7 @@ Timber::add_route('projetos', function ($params) {
 
     // $query = 'bla=bla';
     // Timber::load_template('projetos.php', $query);
+    
 });
 
 Timber::add_route('buscaPorCep', function ($params) {
