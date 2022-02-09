@@ -38,5 +38,6 @@ ADMMAIL='a@a.com'       # e-mail para o usuario administrativo
 ou seja, para executar apontando para o seu banco de dados, basta apenas executar:
 
 ```
-docker run --name monitor-de-metas -e DBHOST=mysql.dyndns.org -e DBUSER=root -e DBPASS=pass -e URL=meusystema.dominio.com.br embeddednetworks/monitor-de-metas
+docker run --name monitor-de-metas -e DBHOST=mysql.dyndns.org -e DBUSER=root -e DBPASS=pass -e URL=localhost nucleodigitalorg/monitor-de-metas
 ```
+Com o container iniciado, acesse http://localhost/wp-admin e ao logar com admin e a senha pass1234 ele vai direto na tela que vai apontar para a configuração da URL da api, se você estiver usando o docker-compose.yaml que esta no projeto, basta colocar http://monitor-de-metas-api/ ou então se não estiver usando o docker-compose, basta apontar para a url que você designou para a sua API
